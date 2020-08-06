@@ -14,7 +14,7 @@ WePY resource summary：[awesome-wepy](https://github.com/aben1188/awesome-wepy)
 
 WePY (pronounced: /'wepi/) is a framework that enables componentization of small programs by pre-compiling them so that developers can choose their own development style.Details optimization of the framework, the introduction of Promise and Async Functions are all aimed at making it easier and more efficient to develop applets.
 
-At the same time, WePY is also a growing framework, drawing heavily on the design concepts and ideas of some front-end optimization tools and frameworks.If WePY has a problem, or if you have a better idea, feel free to submit an ISSUE or PR.
+At the same time, WePY is also a growing framework, drawing heavily on the design concepts and ideas of some front-end optimization tools and frameworks.Whether WePY has a problem, or you have a better idea,please feel free to submit ISSUEs or PR.
 
 
 ### Features:
@@ -40,7 +40,7 @@ At the same time, WePY is also a growing framework, drawing heavily on the desig
 </style>
 <template>
   <div class="container">
-    <div class="num" @tap="num++">
+    <div class="num" bindtap="num">
       {{num}}
     </div>
     <custom-component></custom-component>
@@ -61,12 +61,18 @@ At the same time, WePY is also a growing framework, drawing heavily on the desig
 <script>
   import wepy from '@wepy/core';
 
-  wepy.page({
+  Page({
     data: {
       num: 0,
       text: 'Hello World',
     },
-  });
+  num:Function(){
+    var num=this.data.num;
+    this.setData({
+        num:++this.data.num
+      })
+  }
+  })
 </script>
 ```
 
